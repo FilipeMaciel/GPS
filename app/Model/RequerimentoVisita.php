@@ -21,4 +21,9 @@ class RequerimentoVisita extends Model
     {
         return $this->hasOne(Campus::class,'id','campus_id');
     }
+
+    public function coordenacao()
+    {
+        return $this->hasOne(Coordenacao::class,'id','coordenacao_id');
+    }
 }
