@@ -16,7 +16,7 @@ class CreateRequerimentosVisitaTable extends Migration
         Schema::create('requerimentos_visita', function (Blueprint $table) {
             $table->integer('id',true);
             $table->integer('projeto_id')->index('projeto_id');
-            $table->integer('coordenacao');
+            $table->integer('coordenacao_id')->index('coordenacao_id');
             $table->integer('campus_id')->index('campus_id');
             $table->string('fone',30)->nullable();
             $table->string('local',250);
@@ -34,6 +34,7 @@ class CreateRequerimentosVisitaTable extends Migration
         {
             $table->foreign('projeto_id', 'requerimentos_visita_ibfk_1')->references('id')->on('projetos_visita')->onUpdate('CASCADE')->onDelete('RESTRICT');
             $table->foreign('campus_id', 'requerimentos_visita_ibfk_2')->references('id')->on('campus')->onUpdate('CASCADE')->onDelete('RESTRICT');
+            $table->foreign('coordenacao_id', 'requerimentos_visita_ibfk_3')->references('id')->on('coordenacoes')->onUpdate('CASCADE')->onDelete('RESTRICT');
         });
     }
 
