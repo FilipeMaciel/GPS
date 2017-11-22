@@ -17,13 +17,13 @@
 </head>
 <body>
 
-@include('includes.principal.header')
+@include('includes.login.header')
 
 <main>
     @yield('content')
 </main>
 
-@include('includes.principal.footer')
+@include('includes.login.footer')
 
 <!-- Scripts -->
 <script src="{{ asset('js/app.js') }}"></script>
