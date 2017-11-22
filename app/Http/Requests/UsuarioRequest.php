@@ -23,7 +23,7 @@ class UsuarioRequest extends FormRequest
      */
     public function rules()
     {
-        $id     = $this->route('id');
+        $id = $this->route('id');
         return [
             'nome' => 'required|max:250',
             'login' => "required|max:250|unique:usuario,login,$id",

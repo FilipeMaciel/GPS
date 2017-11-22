@@ -13,7 +13,7 @@ class DisciplinaRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,17 @@ class DisciplinaRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'nome' => 'required|max:250',
+            'curso_id' => 'required|exists:cursos,id'
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'nome.required' => 'O nome é obrigatório',
+            'curso_id.required' => 'O curso é obrigatório',
+            'curso_id.exists' => 'O curso informado não existe'
         ];
     }
 }

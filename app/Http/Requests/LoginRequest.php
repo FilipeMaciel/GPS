@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CampusRequest extends FormRequest
+class LoginRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,14 +24,17 @@ class CampusRequest extends FormRequest
     public function rules()
     {
         return [
-            'nome' => 'required|max:250'
+            'login' => 'required',
+            'password' => 'required|min:4|max:250'
         ];
     }
 
     public function messages()
     {
         return [
-            'nome.required' => 'O nome é obrigatório'
+            'login.required' => 'O login é obrigatório',
+            'password.required' => 'A senha é obrigatória',
+            'password.min' => 'A senha deve ter no minimo 4 caracteres'
         ];
     }
 }
