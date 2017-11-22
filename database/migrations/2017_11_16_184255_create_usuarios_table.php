@@ -17,8 +17,10 @@ class CreateUsuariosTable extends Migration
             $table->integer('id',true);
             $table->string('nome',250);
             $table->string('login',250);
-            $table->string('senha',250);
+            $table->string('password',250);
+            $table->string('email',250);
             $table->string('cargo',250)->nullable();
+            $table->string('remember_token',250)->nullable();
             $table->tinyInteger('status')->default(1);
             $table->timestamps();
         });

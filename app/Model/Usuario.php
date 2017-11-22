@@ -8,7 +8,7 @@ class Usuario extends Model
 {
     protected $table = 'usuarios';
 
-    protected $fillable = ['nome','login','senha','cargo','status'];
+    protected $fillable = ['nome','login','password','email','cargo','status'];
 
     public function projetos()
     {
