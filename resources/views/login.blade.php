@@ -8,11 +8,8 @@
             <h4>Login</h4>
             </div>
 
-<<<<<<< HEAD
-            <form class="col s8" action="{{asset('/login')}}" method="post">
-=======
+            
             <form class="col s4">
->>>>>>> 12e2e17567dfa8ad0c76bef120f3349af771fce2
                 <div class="column">
                     <div class="input-field col s2">
                         <input id="login" name="login" type="text" class="validate">
