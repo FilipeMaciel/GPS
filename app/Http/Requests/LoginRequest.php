@@ -25,7 +25,7 @@ class LoginRequest extends FormRequest
     {
         return [
             'login' => 'required',
-            'password' => 'required|min:4|max:250'
+            'senha' => 'required|min:4|max:250'
         ];
     }
 
@@ -33,8 +33,8 @@ class LoginRequest extends FormRequest
     {
         return [
             'login.required' => 'O login é obrigatório',
-            'password.required' => 'A senha é obrigatória',
-            'password.min' => 'A senha deve ter no minimo 4 caracteres'
+            'senha.required' => 'A senha é obrigatória',
+            'senha.min' => 'A senha deve ter no minimo 4 caracteres'
         ];
     }
 }

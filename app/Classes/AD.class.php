@@ -6,6 +6,8 @@
  *
  */
 
+namespace App\Classes;
+
 /**
  *
  * @package config\classes
@@ -40,11 +42,10 @@ class AD {
 		ldap_set_option ( $ldap, LDAP_OPT_REFERRALS, 0 );
 		
 		$bind = @ldap_bind ( $ldap, $ldaprdn, $password );
-		
 		if ($bind) {
 			$filter = "(sAMAccountName=$username)";
 			$result = ldap_search ( $ldap, "dc=ifg,dc=br", $filter );
-			ldap_sort ( $ldap, $result, "sn" );
+			@ldap_sort ( $ldap, $result, "sn" );
 			$info = ldap_get_entries ( $ldap, $result );
 			
 			if ($info ["count"] == 1) {

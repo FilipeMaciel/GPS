@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Classes\AD;
 use App\Http\Requests\LoginRequest;
 use App\Model\Usuario;
 use Illuminate\Http\Request;
@@ -17,25 +18,27 @@ class AuthController extends Controller
 
     public function attempt(LoginRequest $request)
     {
-        $autServer  = new \AD();
+        $autServer  = new AD();
 
-        $user = (object) $autServer->autenticarAD($request->login,$request->password);
+        $user = (object) $autServer->autenticarAD($request->login, $request->senha);
 
         if ($user->estado) {
             $usuario = Usuario::where('login','=', $request->login)->first();
 
             if(is_null($usuario)):
                 //cadastra
-                Usuario::create([
+                $usuario = Usuario::create([
                     'nome' => $user->nome,
                     'login' => $user->matricula,
-                    'password' => bcrypt($request->password),
+                    'password' => bcrypt($request->senha),
                     'email' => $user->email,
                     'cargo' => null,
                     'status' => 1
                 ]);
             endif;
-            if (Auth::attempt(['registry' => $request->registry, 'password' => $request->password]))
+
+            $remember =  $request->has('remember');
+            if (Auth::loginUsingId($usuario->id, $remember))
             {
                 return redirect()->route('home');
             }

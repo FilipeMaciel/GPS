@@ -10,6 +10,9 @@
 
             
             <form class="col s4" method="post">
+
+                {{ csrf_field() }}
+
                 <div class="column">
                     <div class="input-field col s2">
                         <input id="login" name="login" type="text" class="validate">
@@ -19,6 +22,11 @@
                     <div class="input-field col s2">
                         <input id="senha" name="senha" type="password" class="validate">
                         <label for="senha">SENHA</label>
+                    </div>
+
+                    <div class="col s2" style="margin-bottom: 10px">
+                        <input name="remember" type="checkbox" id="remember" />
+                        <label for="remember">Manter conectado</label>
                     </div>
                     <div class="center">
                     <button type="submit" class="waves-effect waves-light btn">Entrar</button>
