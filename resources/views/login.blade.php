@@ -2,21 +2,21 @@
 @section('content')
 
 
-    <div id="modallogin" class="modal">
+    <div id="modallogin" class="modal" style="width:350px;">
         <div class="modal-content">
             <div class="center">
             <h4>Login</h4>
             </div>
 
-            <form class="col s8">
+            <form class="col s4">
                 <div class="column">
-                    <div class="input-field col s6">
+                    <div class="input-field col s2">
                         <input id="login" name="login" type="text" class="validate">
                         <label for="login">SIAPE</label>
                     </div>
 
-                    <div class="input-field col s6">
-                        <input id="senha" name="senha" type="text" class="validate">
+                    <div class="input-field col s2">
+                        <input id="senha" name="senha" type="password" class="validate">
                         <label for="senha">SENHA</label>
                     </div>
                     <div class="center">
@@ -28,6 +28,15 @@
 
     </div>
 
+    <div id="modaldownload" class="modal bottom-sheet">
+        <div class="modal-content">
+            <h4>Modal Header</h4>
+            <p>A bunch of text</p>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+        </div>
+    </div>
 @endsection
 
 @push('scripts')
