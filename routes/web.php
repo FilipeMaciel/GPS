@@ -14,6 +14,7 @@
 Route::get('/', 'IndexController@index');
 
 Route::get('/login','AuthController@login')->name('login')->middleware('guest');
+Route::post('/login','AuthController@attempt');
 Route::get('/logout','AuthController@logout')->name('logout');
 
 Route::group(['middleware' => 'auth'],function(){
