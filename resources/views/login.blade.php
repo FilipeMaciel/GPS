@@ -21,7 +21,7 @@
                         <label for="senha">SENHA</label>
                     </div>
                     <div class="center">
-                    <a class="waves-effect waves-light btn">Entrar</a>
+                    <button type="submit" class="waves-effect waves-light btn">Entrar</button>
                     </div>
                 </div>
             </form>
