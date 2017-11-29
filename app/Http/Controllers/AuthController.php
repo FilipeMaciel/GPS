@@ -37,10 +37,10 @@ class AuthController extends Controller
             endif;
             if (Auth::attempt(['registry' => $request->registry, 'password' => $request->password]))
             {
-                return redirect(route('home'));
+                return redirect()->route('home');
             }
         } else {
-            //falha no login
+            return "Falha no login";
         }
     }
 
