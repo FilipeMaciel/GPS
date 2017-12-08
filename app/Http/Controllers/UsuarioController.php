@@ -27,7 +27,8 @@ class UsuarioController extends Controller
      */
     public function create()
     {
-        return view('usuario.cadastrar');
+        $usuario = new Usuario();
+        return view('usuario.cadastrar', compact('usuario'));
     }
 
     /**
