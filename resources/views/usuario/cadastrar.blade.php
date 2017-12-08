@@ -1,10 +1,14 @@
 @extends('layout')
 
 @section('content')
-    <h1>usuario cadastrar</h1>
+    <h3 class="center-align">Cadastrar Usuário</h3>
     <form action="{{ route('usuario.create') }}" method="post">
-        {{ csrf_token() }}
+        {{ csrf_field() }}
+
         @include('usuario._form')
-        <input type="submit" value="subimita">
+
+        <div class="center">
+            <button type="submit" class="btn"><i class="material-icons right">save</i>Salvar</button>
+        </div>
     </form>
 @endsection
