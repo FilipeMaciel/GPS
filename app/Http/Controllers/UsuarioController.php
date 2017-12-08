@@ -16,8 +16,8 @@ class UsuarioController extends Controller
      */
     public function index()
     {
-        $usuario = Usuario::where('status','=',1)->orderBy('nome','asc')->paginate(15);
-        return view('usuario.index', compact('usuario'));
+        $usuarios = Usuario::where('status','=',1)->orderBy('nome','asc')->paginate(15);
+        return view('usuario.index', compact('usuarios'));
     }
 
     /**
@@ -70,7 +70,7 @@ class UsuarioController extends Controller
         if(is_null($usuario))
             throw new ModelNotFoundException('Usuário não encontrado');
 
-        return view('usuario.editar',compact('usuario'));
+        return view('usuario.alterar',compact('usuario'));
     }
 
     /**

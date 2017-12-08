@@ -70,7 +70,7 @@ class CoordenacaoController extends Controller
         if(is_null($coordenacao))
             throw new ModelNotFoundException('Coordenação não encontrada');
 
-        return view('coordenacao.editar',compact('coordenacao'));
+        return view('coordenacao.alterar',compact('coordenacao'));
     }
 
     /**

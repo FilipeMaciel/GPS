@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProjetoVisitaRequest;
+use App\Model\Disciplina;
 use App\Model\ProjetoVisita;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
@@ -27,7 +28,8 @@ class ProjetoController extends Controller
      */
     public function create()
     {
-        return view('projeto.cadastrar');
+        $disciplinas = Disciplina::where('status','=',1)->orderBy('nome','asc')->get();
+        return view('projeto.cadastrar',compact('disciplinas'));
     }
 
     /**
@@ -70,7 +72,9 @@ class ProjetoController extends Controller
         if(is_null($projeto))
             throw new ModelNotFoundException('Projeto não encontrado');
 
-        return view('projeto.editar',compact('projeto'));
+        $disciplinas = Disciplina::where('status','=',1)->orderBy('nome','asc')->get();
+
+        return view('projeto.alterar',compact('projeto','disciplinas'));
     }
 
     /**

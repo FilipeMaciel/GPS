@@ -70,7 +70,7 @@ class CursoController extends Controller
         if(is_null($curso))
             throw new ModelNotFoundException('Curso não encontrado');
 
-        return view('curso.editar',compact('curso'));
+        return view('curso.alterar',compact('curso'));
     }
 
     /**

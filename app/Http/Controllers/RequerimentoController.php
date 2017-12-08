@@ -70,7 +70,7 @@ class RequerimentoController extends Controller
         if(is_null($requerimento))
             throw new ModelNotFoundException('Requerimento não encontrado');
 
-        return view('requerimento.editar',compact('requerimento'));
+        return view('requerimento.alterar',compact('requerimento'));
     }
 
     /**

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\DisciplinaRequest;
+use App\Model\Curso;
 use App\Model\Disciplina;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
@@ -27,7 +28,8 @@ class DisciplinaController extends Controller
      */
     public function create()
     {
-        return view('disciplina.cadastrar');
+        $cursos = Curso::where('status','=',1)->orderBy('nome','asc')->get();
+        return view('disciplina.cadastrar',compact('cursos'));
     }
 
     /**
@@ -70,7 +72,9 @@ class DisciplinaController extends Controller
         if(is_null($disciplina))
             throw new ModelNotFoundException('Disciplina não encontrada');
 
-        return view('disciplina.editar',compact('disciplina'));
+        $cursos = Curso::where('status','=',1)->orderBy('nome','asc')->get();
+
+        return view('disciplina.editar',compact('disciplina','cursos'));
     }
 
     /**

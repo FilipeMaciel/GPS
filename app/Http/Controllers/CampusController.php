@@ -70,7 +70,7 @@ class CampusController extends Controller
         if(is_null($campus))
             throw new ModelNotFoundException('Campus não encontrado');
 
-        return view('campus.editar',compact('campus'));
+        return view('campus.alterar',compact('campus'));
     }
 
     /**

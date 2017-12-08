@@ -1,0 +1,38 @@
+@if ($paginator->hasPages())
+    <div class="row">
+        <ul class="pagination right-align">
+            {{-- Previous Page Link --}}
+            @if ($paginator->onFirstPage())
+                <li class="disabled"><a><i class="material-icons">chevron_left</i></a></li>
+            @else
+                <li class="waves-effect"><a href="{{ $paginator->previousPageUrl() . (empty(request()->get('search')) ? '' : '&search=' . request()->get('search')) }}" rel="prev"><i class="material-icons">chevron_left</i></a></li>
+            @endif
+
+            {{-- Pagination Elements --}}
+            @foreach ($elements as $element)
+                {{-- "Three Dots" Separator --}}
+                @if (is_string($element))
+                    <li class="disabled">{{ $element }}</li>
+                @endif
+
+                {{-- Array Of Links --}}
+                @if (is_array($element))
+                    @foreach ($element as $page => $url)
+                        @if ($page == $paginator->currentPage())
+                            <li class="active"><a>{{ $page }}</a></li>
+                        @else
+                            <li class="waves-effect"><a href="{{ $url . (empty(request()->get('search')) ? '' : '&search=' . request()->get('search')) }}">{{ $page }}</a></li>
+                        @endif
+                    @endforeach
+                @endif
+            @endforeach
+
+            {{-- Next Page Link --}}
+            @if ($paginator->hasMorePages())
+                <li class="waves-effect"><a href="{{ $paginator->nextPageUrl() . (empty(request()->get('search')) ? '' : '&search=' . request()->get('search')) }}" rel="next"><i class="material-icons">chevron_right</i></a></li>
+            @else
+                <li class="waves-effect disabled"><a><i class="material-icons">chevron_right</i></a></li>
+            @endif
+        </ul>
+    </div>
+@endif
