@@ -1,3 +1,10 @@
+@if ($errors->any())
+    <ul class="collection">
+        @foreach ($errors->all() as $error)
+            <li class="collection-item red-text">{{ $error }}</li>
+        @endforeach
+    </ul>
+@endif
 
 <div class="row">
     <div class="input-field col s12 m6">
