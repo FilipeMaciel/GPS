@@ -37,7 +37,7 @@ class UsuarioRequest extends FormRequest
         return [
             'nome.required' => 'O nome é obrigatório',
             'login.required' => 'A matricula é obrigatória',
-            'login.unique' => 'A matricula informada já cadastrada',
+            'login.unique' => 'A matricula informada já cadastrado',
             'email.required' => 'O email é obrigatório',
             'email.email' => 'O email é inválido'
         ];
