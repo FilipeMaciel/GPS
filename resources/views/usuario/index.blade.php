@@ -3,6 +3,10 @@
 @section('content')
     <h3 class="center-align">Usuários cadastrados</h3>
 
+    <div class="right-align">
+        <a href="{{ route('usuario.create') }}" class="btn">novo usuário</a>
+    </div>
+
     @if($usuarios->count() == 0)
         <h4 class="center-align">Não há usuários cadastrados</h4>
     @else

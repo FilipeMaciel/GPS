@@ -26,8 +26,7 @@ class UsuarioRequest extends FormRequest
         $id = $this->route('id');
         return [
             'nome' => 'required|max:250',
-            'login' => "required|max:250|unique:usuario,login,$id",
-            'password' => 'required|min:4|max:250|confirmed',
+            'login' => "required|max:250|unique:usuarios,login,$id",
             'email' => 'required|email|max:250',
             'cargo' => 'nullable|max:250'
         ];
@@ -39,8 +38,6 @@ class UsuarioRequest extends FormRequest
             'nome.required' => 'O nome é obrigatório',
             'login.required' => 'O login é obrigatório',
             'login.unique' => 'O login informado já cadastrado',
-            'password.required' => 'A senha é obrigatória',
-            'password.min' => 'A senha deve ter no minimo 4 caracteres',
             'email.required' => 'O email é obrigatório',
             'email.email' => 'O email é inválido'
         ];
