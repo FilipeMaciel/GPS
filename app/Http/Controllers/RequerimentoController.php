@@ -27,7 +27,8 @@ class RequerimentoController extends Controller
      */
     public function create()
     {
-        return view('requerimento.cadastrar');
+        $requerimento = new RequerimentoVisita();
+        return view('requerimento.cadastrar', compact('requerimento'));
     }
 
     /**

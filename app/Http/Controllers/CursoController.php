@@ -27,7 +27,8 @@ class CursoController extends Controller
      */
     public function create()
     {
-        return view('curso.cadastrar');
+        $curso = new Curso();
+        return view('curso.cadastrar', compact('curso'));
     }
 
     /**

@@ -28,8 +28,9 @@ class ProjetoController extends Controller
      */
     public function create()
     {
+        $projeto = new ProjetoVisita();
         $disciplinas = Disciplina::where('status','=',1)->orderBy('nome','asc')->get();
-        return view('projeto.cadastrar',compact('disciplinas'));
+        return view('projeto.cadastrar',compact('disciplinas', 'projeto'));
     }
 
     /**

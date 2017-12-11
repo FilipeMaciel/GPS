@@ -27,7 +27,8 @@ class CoordenacaoController extends Controller
      */
     public function create()
     {
-        return view('coordenacao.cadastrar');
+        $coordenacao = new Coordenacao();
+        return view('coordenacao.cadastrar', compact('coordenacao'));
     }
 
     /**
