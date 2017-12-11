@@ -28,8 +28,9 @@ class DisciplinaController extends Controller
      */
     public function create()
     {
+        $disciplina = new Disciplina();
         $cursos = Curso::where('status','=',1)->orderBy('nome','asc')->get();
-        return view('disciplina.cadastrar',compact('cursos'));
+        return view('disciplina.cadastrar',compact('cursos','disciplina'));
     }
 
     /**

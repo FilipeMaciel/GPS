@@ -27,7 +27,8 @@ class CampusController extends Controller
      */
     public function create()
     {
-        return view('campus.cadastrar');
+        $campus = new Campus();
+        return view('campus.cadastrar', compact('campus'));
     }
 
     /**

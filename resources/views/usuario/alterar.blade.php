@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('content')
-    <h1>usuario alterar</h1>
+    <h3 class="center-align">Alterar Usuário</h3>
     <form action="{{ route('usuario.edit', ['id' => $usuario->id]) }}" method="post">
         {{ csrf_field() }}
         @include('usuario._form')
