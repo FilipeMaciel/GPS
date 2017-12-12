@@ -31,6 +31,16 @@ Route::group(['middleware' => 'auth'],function(){
         Route::get('/{id}', 'UsuarioController@show')->name('show');
     });
 
+    Route::group(['prefix' => 'curso', 'as' => 'curso.'], function(){
+        Route::get('/', 'CursoController@index')->name('index');
+        Route::get('/cadastrar', 'CursoController@create')->name('create');
+        Route::post('/cadastrar', 'CursoController@store')->name('store');
+        Route::get('/{id}/alterar', 'CursoController@edit')->name('edit');
+        Route::post('/{id}/alterar', 'CursoController@update')->name('update');
+        Route::get('/{id}/excluir', 'CursoController@destroy')->name('destroy');
+        Route::get('/{id}', 'CursoController@show')->name('show');
+    });
+
     Route::group(['prefix' => 'campus', 'as' => 'campus.'], function(){
         Route::get('/', 'CampusController@index')->name('index');
         Route::get('/cadastrar', 'CampusController@create')->name('create');
