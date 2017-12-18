@@ -1,5 +1,8 @@
 @extends('layout')
 
 @section('content')
-    <h1>projeto alterar</h1>
+    <form class="row s12 m4 center" style="padding:10px;" action="" method="">
+        @include('projeto._form')
+        <button type="submit" class="btn"><i class="material-icons right">save</i>Salvar</button>
+    </form>
 @endsection
