@@ -44,6 +44,7 @@ class ProjetoController extends Controller
         $dados = $request->all();
 
         $dados['usuario_id'] =  \Auth::id();
+        $dados['codigo'] = ProjetoVisita::generateCode();
 
         ProjetoVisita::create($dados);
 

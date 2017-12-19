@@ -49,7 +49,7 @@ class ProjetoVisita extends Model
 {
     protected $table = 'projetos_visita';
 
-    protected $fillable = ['usuario_id','disciplina_id','turma','num_alunos','destino','endereco','site','fone','justificativa','objetivo','metodologia','razao_social','status'];
+    protected $fillable = ['codigo', 'usuario_id','disciplina_id','turma','num_alunos','destino','endereco','site','fone','justificativa','objetivo','metodologia','razao_social','status'];
 
     public function cronogramas()
     {
@@ -69,5 +69,19 @@ class ProjetoVisita extends Model
     public function requerimento()
     {
         return $this->hasOne(RequerimentoVisita::class,'projeto_id','id');
+    }
+
+    /**
+     * Gera o codigo da visita
+     * @return int
+     */
+    public static function generateCode()
+    {
+        do{
+            $code = rand(1, 99999);
+            $p = ProjetoVisita::where('codigo','=',$code)->count();
+        }while($p != 0);
+
+        return $code;
     }
 }
