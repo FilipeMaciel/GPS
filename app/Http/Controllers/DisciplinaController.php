@@ -17,8 +17,8 @@ class DisciplinaController extends Controller
      */
     public function index()
     {
-        $disciplina = Disciplina::where('status','=',1)->orderBy('nome','asc')->paginate(15);
-        return view('disciplina.index', compact('disciplina'));
+        $disciplinas = Disciplina::where('status','=',1)->orderBy('nome','asc')->paginate(15);
+        return view('disciplina.index', compact('disciplinas'));
     }
 
     /**
