@@ -17,8 +17,8 @@ class ProjetoController extends Controller
      */
     public function index()
     {
-        $projeto = ProjetoVisita::where('status','=',1)->orderBy('nome','asc')->paginate(15);
-        return view('projeto.index', compact('projeto'));
+        $projetos = ProjetoVisita::where('status','=',1)->orderBy('turma','asc')->paginate(15);
+        return view('projeto.index', compact('projetos'));
     }
 
     /**
@@ -41,7 +41,11 @@ class ProjetoController extends Controller
      */
     public function store(ProjetoVisitaRequest $request)
     {
-        ProjetoVisita::create($request->all());
+        $dados = $request->all();
+
+        $dados['usuario_id'] =  \Auth::id();
+
+        ProjetoVisita::create($dados);
 
         return redirect()->route('projeto.index')->with('success','Projeto cadastrado com sucesso!');
     }
@@ -91,7 +95,11 @@ class ProjetoController extends Controller
         if(is_null($projeto))
             throw new ModelNotFoundException('Projeto não encontrado');
 
-        $projeto->fill($request->all())->save();
+        $dados = $request->all();
+
+        $dados['usuario_id'] =  \Auth::id();
+
+        $projeto->fill($dados)->save();
 
         return redirect()->route('projeto.index')->with('success','Projeto alterado com sucesso!');
     }

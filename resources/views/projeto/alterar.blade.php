@@ -1,8 +1,16 @@
 @extends('layout')
 
 @section('content')
-    <form class="row s12 m4 center" style="padding:10px;" action="" method="">
+    <div class="center">
+        <h3 class="center">Alterar Projeto</h3>
+    </div>
+
+    <form action="{{ route('projeto.update',['id' => $projeto->id]) }}" method="POST">
+
         @include('projeto._form')
-        <button type="submit" class="btn"><i class="material-icons right">save</i>Salvar</button>
+
+        <div class="center" style="margin-bottom: 15px">
+            <button type="submit" class="btn"><i class="material-icons right">save</i>Salvar</button>
+        </div>
     </form>
 @endsection
