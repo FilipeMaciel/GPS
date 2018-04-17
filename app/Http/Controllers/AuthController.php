@@ -21,6 +21,7 @@ class AuthController extends Controller
         $autServer  = new AD();
 
         $user = (object) $autServer->autenticarAD($request->login, $request->senha);
+        $user = "teste";
 
         if ($user->estado) {
             $usuario = Usuario::where('login','=', $request->login)->first();
@@ -30,8 +31,7 @@ class AuthController extends Controller
                 $usuario = Usuario::create([
                     'nome' => $user->nome,
                     'login' => $user->matricula,
-                    'password' => bcrypt($request->senha),
-                    'email' => $user->email,
+                    'senha' => bcrypt($request->senha),
                     'cargo' => null,
                     'status' => 1
                 ]);

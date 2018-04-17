@@ -19,6 +19,8 @@ Route::get('/logout','AuthController@logout')->name('logout');
 
 Route::group(['middleware' => 'auth'],function(){
 
+    Route::get('/home', Auth::basic());
+
     Route::get('/home', 'HomeController@index')->name('home');
 
     Route::group(['prefix' => 'usuario', 'as' => 'usuario.'], function(){
